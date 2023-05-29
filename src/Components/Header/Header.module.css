@@ -1,0 +1,79 @@
+#header {
+    background-color: white;
+    border-bottom: 1px solid #ebf2f2;
+    width: 100%;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#icon {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    text-decoration: none;
+    color: #66ad36;
+}
+
+.header__logo {
+    width: 45px;
+}
+
+.spring__text {
+    margin-left: 10px;
+    padding-bottom: 10px;
+    font-family: "Futura Md BT", sans-serif;
+    font-size: 2.5rem;
+}
+
+.by__spring__text {
+    font-family: "Futura Bk BT", sans-serif;
+    padding: 20px 0 0 5px;
+}
+
+#burger {
+    display: none;
+}
+
+[for=burger]::before {
+    content: "☰";
+}
+
+[for=burger] {
+    display: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 2rem;
+    color: #464646;
+    width: 30px;
+    padding: 7px 15px;
+    user-select: none;
+}
+
+[for=burger]:hover {
+    background-color: #ececec;
+}
+
+#burger:checked + label + nav {
+    display: block;
+    position: fixed;
+    user-select: none;
+}
+
+#burger:checked + label {
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+#burger:checked + label:hover {
+    background-color: transparent;
+}
+
+#burger:checked + label::before {
+    content: "x";
+    font-family: "Humanst521 Lt BT", sans-serif;
+}

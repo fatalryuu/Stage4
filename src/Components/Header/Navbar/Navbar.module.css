@@ -1,0 +1,25 @@
+#navbar {
+    position: static;
+    margin-left: auto;
+    width: 55%;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.scrollbar {
+    width: 8px;
+    background-color: #ccc;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.show-scrollbar .scrollbar {
+    opacity: 1;
+}
