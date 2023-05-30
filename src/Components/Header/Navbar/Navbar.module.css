@@ -23,3 +23,33 @@
 .show-scrollbar .scrollbar {
     opacity: 1;
 }
+
+@media screen and (max-width: 1259px) {
+    #navbar {
+        position: static;
+        width: 690px;
+    }
+}
+
+@media screen and (max-width: 1008px) {
+    #navbar {
+        position: static;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #navbar {
+        display: none;
+        height: 100%;
+        top: 0;
+        width: 100%;
+        padding-top: 50px;
+        background-color: #191e1e;
+        overflow-y: auto;
+        position: fixed;
+    }
+
+    .nav__list {
+        display: block;
+    }
+}

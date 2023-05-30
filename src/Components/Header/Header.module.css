@@ -77,3 +77,52 @@
     content: "x";
     font-family: "Humanst521 Lt BT", sans-serif;
 }
+
+@media screen and (max-width: 1008px) {
+    .by__spring__text {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #header {
+        position: fixed;
+        top: 0;
+    }
+
+    #icon {
+        margin-left: 30px;
+    }
+
+    [for=burger] {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header__logo {
+        width: 35px;
+    }
+
+    .spring__text {
+        font-size: 2rem;
+    }
+
+    .by__spring__text {
+        display: block;
+        padding: 10px 0 0 5px;
+        font-size: .75rem;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #icon {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #icon {
+        margin-left: 10px;
+    }
+}
