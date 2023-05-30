@@ -79,7 +79,7 @@ const Navbar = () => {
             <div className={s.nav__list}>
                 {dropdowns.map(d => <Dropdown info={d} key={d.id}/>)}
             </div>
-            <div id="scrollbar" className={s.scrollbar}></div>
+            <div id={s["scrollbar"]} className={s.scrollbar}></div>
         </nav>
     );
 };

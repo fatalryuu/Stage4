@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Dropdown.module.css';
 import PropTypes from "prop-types";
 
 const Dropdown = ({info}) => {
+    const [isContentVisible, setIsContentVisible] = useState(false);
+
+    const handleButtonClick = () => {
+        setIsContentVisible((prevValue) => !prevValue);
+    };
 
     const configureLinks = (text, index) => {
         if ((info.id === 3 && index === 9) || (info.id === 3 && index === 10)) {
@@ -18,8 +23,8 @@ const Dropdown = ({info}) => {
 
     return (
         <div className={s.dropdown}>
-            <button className={s.dropdown__button}>{info.link}</button>
-            <div className={s.dropdown__content}>
+            <button className={`${s.dropdown__button} ${isContentVisible ? s.up : ''}`} onClick={handleButtonClick}>{info.link}</button>
+            <div className={`${s.dropdown__content} ${isContentVisible ? s.visible : s.invisible}`}>
                 {info.links.map((l, index) => configureLinks(l, index))}
             </div>
         </div>

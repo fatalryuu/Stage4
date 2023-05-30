@@ -36,6 +36,14 @@
     border-radius: 5px;
 }
 
+.dropdown__content.visible {
+    display: block;
+}
+
+.dropdown__content.invisible {
+    display: none;
+}
+
 .dropdown:hover .dropdown__content {
     display: block;
 }
@@ -90,7 +98,7 @@
         transform: rotate(-45deg);
     }
 
-    .dropdown:hover .dropdown__content {
+    .dropdown:hover .dropdown__content.invisible {
         display: none;
     }
 
