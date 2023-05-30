@@ -2,30 +2,12 @@ import React from 'react';
 import s from "./Search.module.css";
 import PropTypes from "prop-types";
 
-const Search = ({projects}) => {
+const Search = ({setSearchField}) => {
     let timeoutId;
 
     const handleSearch = (e) => {
-        // clearTimeout(timeoutId);
-        //
-        // timeoutId = setTimeout(() => {
-        //     const value = e.target.value.toLowerCase();
-        //     let hasResults = false;
-        //
-        //     projects.forEach(project => {
-        //         const isVisible = project.title.toLowerCase().includes(value) || project.text.toLowerCase().includes(value);
-        //         project.card.classList.toggle("hidden", !isVisible);
-        //         if (isVisible) {
-        //             hasResults = true;
-        //         }
-        //     });
-        //
-        //     if (hasResults) {
-        //         noResultsMessage.style.display = "none";
-        //     } else {
-        //         noResultsMessage.style.display = "block";
-        //     }
-        // }, 300);
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => setSearchField(e.target.value), 300);
     }
 
     return (
@@ -37,7 +19,7 @@ const Search = ({projects}) => {
 };
 
 Search.propTypes = {
-    projects: PropTypes.array
+    setSearchField: PropTypes.func
 }
 
 export default Search;
