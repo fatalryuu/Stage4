@@ -1,13 +1,26 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Dropdown.module.css';
 import PropTypes from "prop-types";
 
-const Dropdown = ({info}) => {
+const Dropdown = ({info, isOpened, onDropdownOpen, onDropdownClose}) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
 
     const handleButtonClick = () => {
-        setIsContentVisible((prevValue) => !prevValue);
+        if (isOpened) {
+            onDropdownClose();
+        } else {
+            onDropdownOpen(info.id);
+        }
+        if (window.innerWidth <= 900) {
+            setIsContentVisible((prevValue) => !prevValue);
+        }
     };
+
+    useEffect(() => {
+        if (!isOpened) {
+            setIsContentVisible(false);
+        }
+    }, [isOpened])
 
     const configureLinks = (text, index) => {
         if ((info.id === 3 && index === 9) || (info.id === 3 && index === 10)) {
@@ -23,8 +36,8 @@ const Dropdown = ({info}) => {
 
     return (
         <div className={s.dropdown}>
-            <button className={`${s.dropdown__button} ${isContentVisible ? s.up : ''}`} onClick={handleButtonClick}>{info.link}</button>
-            <div className={`${s.dropdown__content} ${isContentVisible ? s.visible : s.invisible}`}>
+            <button className={`${s.dropdown__button} ${isContentVisible && isOpened ? s.up : ''}`} onClick={handleButtonClick}>{info.link}</button>
+            <div className={`${s.dropdown__content} ${isContentVisible && isOpened ? s.visible : s.invisible}`}>
                 {info.links.map((l, index) => configureLinks(l, index))}
             </div>
         </div>
@@ -32,7 +45,10 @@ const Dropdown = ({info}) => {
 };
 
 Dropdown.propTypes = {
-    info: PropTypes.object
-}
+    info: PropTypes.object,
+    isOpened: PropTypes.bool,
+    onDropdownOpen: PropTypes.func,
+    onDropdownClose: PropTypes.func,
+};
 
 export default Dropdown;

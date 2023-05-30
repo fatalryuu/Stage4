@@ -8,22 +8,6 @@
     display: flex;
 }
 
-.scrollbar {
-    width: 8px;
-    background-color: #ccc;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-.show-scrollbar .scrollbar {
-    opacity: 1;
-}
-
 @media screen and (max-width: 1259px) {
     #navbar {
         position: static;

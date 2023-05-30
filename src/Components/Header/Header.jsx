@@ -6,8 +6,10 @@ import Navbar from "./Navbar/Navbar";
 const Header = () => {
     const [isChecked, setIsChecked] = useState(false);
 
+    //close burger menu if it is not mobile version
+    //also close all dropdowns cuz isChecked is provided in <Navbar/>
     const handleResize = () => {
-        if (window.innerWidth >= 900) {
+        if (window.innerWidth > 900) {
             if (isChecked) {
                 setIsChecked(false);
             }
@@ -36,7 +38,7 @@ const Header = () => {
 
                 </input>
                 <label htmlFor="burger" onClick={handleLabelClick}></label>
-                <Navbar />
+                <Navbar isChecked={isChecked}/>
             </div>
         </header>
     );

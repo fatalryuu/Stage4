@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Navbar.module.css';
 import Dropdown from "./Dropdown/Dropdown";
+import PropTypes from "prop-types";
 
-const Navbar = () => {
+const Navbar = ({isChecked}) => {
     const dropdowns = [
         {
             id: 1,
@@ -74,14 +75,32 @@ const Navbar = () => {
         }
     ];
 
+    const [openedDropdownId, setOpenedDropdownId] = useState(null);
+
+    const handleDropdownOpen = (dropdownId) => {
+        setOpenedDropdownId(dropdownId);
+    };
+
+    const handleDropdownClose = () => {
+        setOpenedDropdownId(null);
+    };
+
+    //close all dropdowns after menu is closed
+    useEffect(() => setOpenedDropdownId(null), [isChecked]);
+
     return (
         <nav id={s["navbar"]}>
             <div className={s.nav__list}>
-                {dropdowns.map(d => <Dropdown info={d} key={d.id}/>)}
+                {dropdowns.map(d => <Dropdown info={d} key={d.id} isOpened={openedDropdownId === d.id}
+                                              onDropdownOpen={handleDropdownOpen}
+                                              onDropdownClose={handleDropdownClose}/>)}
             </div>
-            <div id={s["scrollbar"]} className={s.scrollbar}></div>
         </nav>
     );
+};
+
+Navbar.propTypes = {
+    isChecked: PropTypes.bool
 };
 
 export default Navbar;
