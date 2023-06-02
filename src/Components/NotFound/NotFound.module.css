@@ -1,20 +1,16 @@
-div {
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-h1 {
+.header1 {
     color: #66ad36;
     font-size: 5rem;
 }
 
-h1::after {
-    content: "";
-}
-
-h2 {
+.header2 {
     color: #66ad36;
     font-size: 4.5rem;
     text-transform: uppercase;

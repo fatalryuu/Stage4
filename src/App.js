@@ -4,7 +4,7 @@ import Header from "./Components/Header/Header";
 import Projects from "./Components/Projects/Projects";
 import {Routes, Route, useNavigate} from "react-router-dom";
 import Login from "./Components/Login/Login";
-// import NotFound from "./Components/NotFound/NotFound";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<><Header/><Projects/></>}/>
                 <Route path="/login" element={<Login/>}/>
-                {/*<Route path="*" element={<NotFound/>}/>*/}
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         </div>
     );
