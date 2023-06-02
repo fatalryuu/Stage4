@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import s from './Dropdown.module.css';
 import PropTypes from "prop-types";
+import {NavLink} from "react-router-dom";
 
 const Dropdown = ({info, isOpened, onDropdownOpen, onDropdownClose}) => {
     const [isContentVisible, setIsContentVisible] = useState(false);
@@ -25,12 +26,12 @@ const Dropdown = ({info, isOpened, onDropdownOpen, onDropdownClose}) => {
     const configureLinks = (text, index) => {
         if ((info.id === 3 && index === 9) || (info.id === 3 && index === 10)) {
             if (index === 9) {
-                return <a href="/" id={s["blue"]} key={Math.random() * 1000}>{text}</a>;
+                return <NavLink to="/" id={s["blue"]} key={Math.random() * 1000}>{text}</NavLink>;
             } else {
                 return <span className={s.projects__text__tools} key={Math.random() * 1000}>{text}</span>;
             }
         } else {
-            return <a href="/" key={Math.random() * 1000}>{text}</a>;
+            return <NavLink to="/" key={Math.random() * 1000}>{text}</NavLink>;
         }
     }
 
