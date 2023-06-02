@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [isError, setIsError] = useState(false);
     const navigate = useNavigate();
     const users = useSelector(state => state.users.users);
     // const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const Login = () => {
         e.preventDefault();
         if (users.find(user => user.username === username && user.password === password)) {
             navigate("/");
+        } else {
+            setIsError(true);
         }
     }
 
@@ -22,9 +25,11 @@ const Login = () => {
         <div className={s.wrapper}>
             {/*<button onClick={() => dispatch(addUser({username: "root", password: "root"}))}>Add</button>*/}
             <form onSubmit={handleSubmit}>
+                <h1 className={s.header}>Login</h1>
                 <input
                     type="text"
                     value={username}
+                    placeholder="Username"
                     onChange={e => setUsername(e.target.value)}
                     className={s.username}
                     required={true}
@@ -32,11 +37,13 @@ const Login = () => {
                 <input
                     type="password"
                     value={password}
+                    placeholder="Password"
                     onChange={e => setPassword(e.target.value)}
                     className={s.password}
                     required={true}
                 />
-                <input type="submit" value="Login"/>
+                <p hidden={!isError} className={s.error}>Incorrect username or password</p>
+                <input type="submit" className={s.submit} value="Login"/>
             </form>
         </div>
     );
