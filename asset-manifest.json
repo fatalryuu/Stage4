@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Stage4/static/css/main.0fcc3da0.css",
-    "main.js": "/Stage4/static/js/main.c97e3e60.js",
+    "main.css": "/Stage4/static/css/main.6f8b5929.css",
+    "main.js": "/Stage4/static/js/main.a4947537.js",
     "static/media/spring-framework.svg": "/Stage4/static/media/spring-framework.63dc4282f68b6462d3292b5eb1b87a2e.svg",
     "static/media/spring_icon.svg": "/Stage4/static/media/spring_icon.5c62e7f4bbd6f07c0fd84d21ce9050ca.svg",
     "static/media/spring-data-flow.svg": "/Stage4/static/media/spring-data-flow.466ad4f32e433d432ec19fad70174b43.svg",
@@ -10,11 +10,11 @@
     "static/media/spring-data.svg": "/Stage4/static/media/spring-data.a70fab0e48b77a3c08f87f1382a85556.svg",
     "static/media/spring-security.svg": "/Stage4/static/media/spring-security.1c141abb42cce353c52a49ce66ac617c.svg",
     "index.html": "/Stage4/index.html",
-    "main.0fcc3da0.css.map": "/Stage4/static/css/main.0fcc3da0.css.map",
-    "main.c97e3e60.js.map": "/Stage4/static/js/main.c97e3e60.js.map"
+    "main.6f8b5929.css.map": "/Stage4/static/css/main.6f8b5929.css.map",
+    "main.a4947537.js.map": "/Stage4/static/js/main.a4947537.js.map"
   },
   "entrypoints": [
-    "static/css/main.0fcc3da0.css",
-    "static/js/main.c97e3e60.js"
+    "static/css/main.6f8b5929.css",
+    "static/js/main.a4947537.js"
   ]
 }
