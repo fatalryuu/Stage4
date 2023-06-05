@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import s from './Login.module.css';
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-// import {addUser} from "../../Redux/slices/users";
+// import {addUser} from "../../redux/slices/users";
 
 const Login = () => {
     const [username, setUsername] = useState("");
