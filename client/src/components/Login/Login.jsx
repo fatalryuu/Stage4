@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import s from './Login.module.css';
 import {useNavigate} from "react-router-dom";
 import {login as loginAPI} from "../../api/api";
-import {login as loginAC} from "../../redux/slices/auth";
 import {useDispatch} from "react-redux";
 
 const Login = () => {
@@ -16,9 +15,8 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await loginAPI(username, password);
+            const response = await dispatch(loginAPI(username, password));
             if (response.id) {
-                dispatch(loginAC({id: response.id}));
                 navigate("/");
             } else {
                 setError(response);
