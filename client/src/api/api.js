@@ -1,5 +1,6 @@
 import axios from "axios";
 import {login as loginAC} from "../redux/slices/auth";
+import {addProjects} from "../redux/slices/projects";
 
 const instance = axios.create({
     baseURL: "http://localhost:5000/api",
@@ -21,12 +22,15 @@ export const login = (username, password) => {
     }
 }
 
-export const getProjects = async () => {
-    try {
-        const response = await instance.get("data/projects");
+export const getProjects = () => {
+    return async (dispatch) => {
+        try {
+            const response = await instance.get("data/projects");
 
-        return response.data;
-    } catch (error) {
-        return error.response.data.message;
+            dispatch(addProjects({projects: response.data}));
+            return response.data;
+        } catch (error) {
+            return error.response.data.message;
+        }
     }
 }

@@ -14,7 +14,7 @@ const projectsSlice = createSlice({
     reducers: {
         addProjects: (state, action) => {
             const { projects } = action.payload;
-            state.list = [...state.list, ...projects];
+            state.list = [...projects];
         }
     }
 });

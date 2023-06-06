@@ -17,7 +17,7 @@ router.post('/login', (req, res) => {
         }
     } catch (e) {
         console.log(e);
-        res.send({message: "Server error"});
+        return res.status(500).json({ message: "Server error" });
     }
 });
 

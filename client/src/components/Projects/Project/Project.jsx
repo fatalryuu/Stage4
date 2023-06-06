@@ -7,7 +7,7 @@ const Project = ({info}) => {
     return (
         <article className={s.project__wrapper}>
             <NavLink to="/" className={s.project__link}>
-                <img src={info.imgURL} alt="" className={s.project__icon}></img>
+                <img src={`http://localhost:5000/images${info.imgURL}`} alt="" className={s.project__icon}></img>
                 <div className={s.project__text}>
                     <h2 className={s.project__header}>{info.title}</h2>
                     <p className={s.project__description}>{info.text}</p>

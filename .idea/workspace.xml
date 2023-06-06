@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5afabe74-2838-4e0f-aada-d1502633b7f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/slices/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/slices/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Projects/Project/Project.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Projects/Project/Project.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Projects/Projects.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Projects/Projects.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/slices/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/slices/projects.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/data.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/data.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +47,7 @@
     "git-widget-placeholder": "main",
     "javascript.nodejs.core.library.configured.version": "18.1.0",
     "javascript.nodejs.core.library.typings.version": "18.16.16",
+    "last_opened_file_path": "E:/Work/Internship/Stage 5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,7 +57,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Work\Internship\Stage 4\server\data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Work\Internship\Stage 5\server\images" />
       <recent name="E:\Work\Internship\Stage 4\client" />
     </key>
   </component>
@@ -73,7 +77,8 @@
       <workItem from="1685529246700" duration="45000" />
       <workItem from="1685704879496" duration="10438000" />
       <workItem from="1685959547957" duration="772000" />
-      <workItem from="1686061219569" duration="9365000" />
+      <workItem from="1686061219569" duration="11661000" />
+      <workItem from="1686077213687" duration="2558000" />
     </task>
     <servers />
   </component>
