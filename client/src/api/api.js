@@ -1,5 +1,5 @@
 import axios from "axios";
-import { login as loginAC } from "../redux/slices/auth";
+import { login as loginAC, setError } from "../redux/slices/auth";
 import { addProjects } from "../redux/slices/projects";
 
 export const login = (username, password) => {
@@ -17,9 +17,12 @@ export const login = (username, password) => {
             return response.data;
         } catch (error) {
             if (error.response) {
+                dispatch(setError({ message: error.response.data.message }));
                 return error.response.data;
+            } else {
+                dispatch(setError({ message: "Server error" }));
+                return { message: "Server error" };
             }
-            return { message: "Server error" };
         }
     };
 };

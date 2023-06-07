@@ -46,9 +46,7 @@ const Login = () => {
                     className={s.password}
                     required={true}
                 />
-                <p hidden={!error} className={s.error}>
-                    {error}
-                </p>
+                {error && <p className={s.error}>{error}</p>}
                 <input type="submit" className={s.submit} value="Login" />
             </form>
         </div>
