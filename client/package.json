@@ -42,11 +42,16 @@
             "last 1 safari version"
         ]
     },
+    "jest": {
+        "moduleNameMapper": {
+            "axios": "axios/dist/node/axios.cjs"
+        }
+    },
     "devDependencies": {
         "eslint": "^8.41.0",
         "eslint-plugin-react": "^7.32.2",
         "gh-pages": "^5.0.0",
-        "jest": "^27.5.1",
+        "jest": "^29.0.0",
         "prop-types": "^15.8.1"
     }
 }
