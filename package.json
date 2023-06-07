@@ -5,6 +5,10 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "start-client": "cd client && npm start",
+        "start-server": "cd server && npm run dev",
+        "start-tests": "cd client && npm run test",
+        "start-all": "npm-run-all --parallel start-client start-server",
         "prepare": "husky install"
     },
     "repository": {
@@ -21,6 +25,7 @@
     "devDependencies": {
         "husky": "^8.0.3",
         "lint-staged": "^13.2.2",
+        "npm-run-all": "^4.1.5",
         "prettier": "2.8.8"
     }
 }
