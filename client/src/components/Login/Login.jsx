@@ -19,7 +19,7 @@ const Login = () => {
             if (response.id) {
                 navigate("/");
             } else {
-                setError(response);
+                setError(response.message);
             }
         } catch (e) {
             console.log(e);
