@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import s from './Login.module.css';
-import {useNavigate} from "react-router-dom";
-import {login as loginAPI} from "../../api/api";
-import {useDispatch} from "react-redux";
+import React, { useState } from "react";
+import s from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
+import { login as loginAPI } from "../../api/api";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -11,7 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async e => {
         e.preventDefault();
 
         try {
@@ -22,9 +22,9 @@ const Login = () => {
                 setError(response);
             }
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
-    }
+    };
 
     return (
         <div className={s.wrapper}>
@@ -46,8 +46,10 @@ const Login = () => {
                     className={s.password}
                     required={true}
                 />
-                <p hidden={!error} className={s.error}>{error}</p>
-                <input type="submit" className={s.submit} value="Login"/>
+                <p hidden={!error} className={s.error}>
+                    {error}
+                </p>
+                <input type="submit" className={s.submit} value="Login" />
             </form>
         </div>
     );

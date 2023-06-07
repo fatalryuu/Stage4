@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const navbarSlice = createSlice({
     name: "navbar",
@@ -15,18 +15,13 @@ const navbarSlice = createSlice({
                     "Cloud",
                     "Web Applications",
                     "Serverless",
-                    "Batch"
-                ]
+                    "Batch",
+                ],
             },
             {
                 id: 2,
                 link: "Learn",
-                links: [
-                    "Overview",
-                    "Quickstart",
-                    "Guides",
-                    "Blog"
-                ]
+                links: ["Overview", "Quickstart", "Guides", "Blog"],
             },
             {
                 id: 3,
@@ -44,39 +39,27 @@ const navbarSlice = createSlice({
                     "View all projects",
                     "Development tools",
                     "Spring Tools4",
-                    "Spring Initializr"
-                ]
+                    "Spring Initializr",
+                ],
             },
             {
                 id: 4,
                 link: "Academy",
-                links: [
-                    "Courses",
-                    "Get Certified"
-                ]
+                links: ["Courses", "Get Certified"],
             },
             {
                 id: 5,
                 link: "Support",
-                links: [
-                    "Overview",
-                    "Security Advisories"
-                ]
+                links: ["Overview", "Security Advisories"],
             },
             {
                 id: 6,
                 link: "Community",
-                links: [
-                    "Overview",
-                    "Events",
-                    "Team"
-                ]
-            }
-        ]
+                links: ["Overview", "Events", "Team"],
+            },
+        ],
     },
-    reducers: {
-
-    }
-})
+    reducers: {},
+});
 
 export default navbarSlice.reducer;

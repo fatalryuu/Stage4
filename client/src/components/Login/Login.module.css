@@ -22,7 +22,8 @@ form {
     margin-bottom: 20px;
 }
 
-.username, .password {
+.username,
+.password {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -30,7 +31,8 @@ form {
     border-radius: 4px;
 }
 
-.username:focus, .password:focus {
+.username:focus,
+.password:focus {
     outline: 1px solid #66ad36;
 }
 

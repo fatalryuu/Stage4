@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
-import s from './Projects.module.css';
+import React, { useEffect } from "react";
+import s from "./Projects.module.css";
 import Header from "./Header/Header";
 import ProjectsList from "./ProjectsList/ProjectsList";
-import {useDispatch} from "react-redux";
-import {useSelector} from "react-redux";
-import {getProjects} from "../../api/api";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getProjects } from "../../api/api";
 
 const Projects = () => {
     const projects = useSelector(state => state.projects.list);
@@ -22,8 +22,8 @@ const Projects = () => {
 
     return (
         <section id={s["projects"]}>
-            <Header/>
-            <ProjectsList projects={projects}/>
+            <Header />
+            <ProjectsList projects={projects} />
         </section>
     );
 };

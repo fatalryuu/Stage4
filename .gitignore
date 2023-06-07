@@ -2,6 +2,8 @@
 
 # dependencies
 .idea
+node_modules
+.husky
 .idea/workspace.xml
 /client/.idea
 /client/node_modules

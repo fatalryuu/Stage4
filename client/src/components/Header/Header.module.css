@@ -38,11 +38,11 @@
     display: none;
 }
 
-[for=burger]::before {
+[for="burger"]::before {
     content: "☰";
 }
 
-[for=burger] {
+[for="burger"] {
     display: none;
     cursor: pointer;
     text-align: center;
@@ -53,7 +53,7 @@
     user-select: none;
 }
 
-[for=burger]:hover {
+[for="burger"]:hover {
     background-color: #ececec;
 }
 
@@ -94,7 +94,7 @@
         margin-left: 30px;
     }
 
-    [for=burger] {
+    [for="burger"] {
         display: block;
     }
 }
@@ -111,7 +111,7 @@
     .by__spring__text {
         display: block;
         padding: 10px 0 0 5px;
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 }
 

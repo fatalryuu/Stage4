@@ -1,5 +1,4 @@
 .dropdown {
-
 }
 
 .dropdown__button {
@@ -10,7 +9,7 @@
     align-items: center;
     font-family: sans-serif;
     font-weight: 600;
-    font-size: .95rem;
+    font-size: 0.95rem;
     padding: 15px;
     cursor: text;
     user-select: text;
@@ -65,10 +64,11 @@
     display: block;
     text-transform: uppercase;
     padding: 8px 16px;
-    font-size: .75rem;
+    font-size: 0.75rem;
 }
 
-.dropdown__content a:hover, #blue:hover {
+.dropdown__content a:hover,
+#blue:hover {
     color: #66ad36;
 }
 
