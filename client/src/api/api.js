@@ -17,7 +17,10 @@ export const login = (username, password) => {
 
             return response.data;
         } catch (error) {
-            return error.response.data.message;
+            if (error.response) {
+                return error.response.data.message;
+            }
+            return "Server error";
         }
     }
 }
