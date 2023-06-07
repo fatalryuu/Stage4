@@ -17,5 +17,12 @@
         "react"
     ],
     "rules": {
+    },
+    "globals": {
+        "jest": "readonly",
+        "describe": "readonly",
+        "it": "readonly",
+        "test": "readonly",
+        "expect": "readonly"
     }
 }

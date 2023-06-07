@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -46,6 +46,7 @@
     "eslint": "^8.41.0",
     "eslint-plugin-react": "^7.32.2",
     "gh-pages": "^5.0.0",
+    "jest": "^27.5.1",
     "prop-types": "^15.8.1"
   }
 }
