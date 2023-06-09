@@ -20,17 +20,30 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.post("/login", (req, res) => {
-    const betaId = 1;
-    const betaUsername = "admin";
-    const betaPassword = "1234";
+router.post("/login", async (req, res) => {
     try {
         const { username, password } = req.body;
-        const isCorrectPassword = bcrypt.compareSync(betaPassword, password);
 
-        if (username === betaUsername && password === betaPassword) {
+        const selectResult = await db.query(
+            "SELECT * FROM person WHERE username = $1",
+            [username],
+        );
+        const user = selectResult.rows[0];
+
+        if (!user) {
+            return res
+                .status(400)
+                .json({ message: "Invalid username or password" });
+        }
+
+        const isCorrectPassword = bcrypt.compareSync(
+            password,
+            user.password_hash,
+        );
+
+        if (isCorrectPassword) {
             return res.json({
-                id: betaId,
+                id: user.id,
             });
         } else {
             return res
