@@ -11,7 +11,9 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        navigate("/register");
+        if (!window.localStorage.getItem("Access Token")) {
+            navigate("/login");
+        }
     }, []);
 
     return (
