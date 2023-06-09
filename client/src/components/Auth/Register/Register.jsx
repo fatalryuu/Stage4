@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./Register.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { login as loginAPI } from "../../../api/api";
+import { register as registerAPI } from "../../../api/api";
 import { useDispatch } from "react-redux";
 import Input from "../Input/Input";
 
@@ -18,22 +18,27 @@ const Register = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-
-        try {
-            const response = await dispatch(loginAPI(username, password));
-            if (response.id) {
-                navigate("/");
-            } else {
-                setError(response.message);
+        if (password === repeatPassword) {
+            try {
+                const response = await dispatch(
+                    registerAPI(username, password, firstName, lastName, age),
+                );
+                if (response.id) {
+                    navigate("/");
+                } else {
+                    setError(response.message);
+                }
+            } catch (e) {
+                console.log(e);
             }
-        } catch (e) {
-            console.log(e);
+        } else {
+            setError("Password mismatch");
         }
     };
 
     return (
         <div className={s.wrapper}>
-            <form onSubmit={handleSubmit}>
+            <form className={s.form} onSubmit={handleSubmit}>
                 <h1 className={s.header}>Registration</h1>
                 <Input
                     type="text"
