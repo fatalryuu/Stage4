@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 
 const createAccessToken = user => {
-    return jwt.sign(user, config.get("accessKey"), { expiresIn: "5s" });
+    return jwt.sign(user, config.get("accessKey"), { expiresIn: "10m" });
 };
 
 const createRefreshToken = user => {
@@ -14,11 +14,10 @@ const createRefreshToken = user => {
 };
 
 router.post("/token", (req, res) => {
-    const { refreshToken, t } = req.body;
+    const { refreshToken } = req.body;
     jwt.verify(refreshToken, config.get("refreshKey"), (err, user) => {
         if (err) {
-            console.log(err);
-            return res.status(403).json({ message: "Invalid refresh token" });
+            return res.status(401).json({ message: "Refresh token expired" });
         }
         const accessToken = createAccessToken({ username: user.username });
         res.json({ accessToken });

@@ -10,7 +10,7 @@ const authenticateToken = (req, res, next) => {
 
     jwt.verify(token, config.get("accessKey"), err => {
         if (err) {
-            return res.status(403).json({ message: "Token expired" });
+            return res.status(403).json({ message: "Access token expired" });
         }
         next();
     });

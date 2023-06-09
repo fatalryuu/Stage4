@@ -3,25 +3,33 @@ import createAuthRefreshInterceptor from "axios-auth-refresh";
 import { login as loginAC, setError } from "../redux/slices/auth";
 import { addProjects } from "../redux/slices/projects";
 
-const refreshAuthLogin = failedRequest => {
-    return axios
-        .post("http://localhost:5000/api/auth/token", {
-            refreshToken: window.localStorage.getItem("Refresh Token"),
-            t: window.localStorage.getItem("Access Token"),
-        })
-        .then(tokenRefreshResponse => {
-            localStorage.setItem(
-                "Access Token",
-                tokenRefreshResponse.data.accessToken,
-            );
-            failedRequest.response.config.headers["Authorization"] =
-                "Bearer " + tokenRefreshResponse.data.accessToken;
-            return Promise.resolve();
-        });
+const refreshAuthLogin = async failedRequest => {
+    console.log("tut1");
+    try {
+        const tokenRefreshResponse = await axios.post(
+            "http://localhost:5000/api/auth/token",
+            {
+                refreshToken: window.localStorage.getItem("Refresh Token"),
+            },
+        );
+        console.log("tut2");
+        localStorage.setItem(
+            "Access Token",
+            tokenRefreshResponse.data.accessToken,
+        );
+        failedRequest.response.config.headers["Authorization"] =
+            "Bearer " + tokenRefreshResponse.data.accessToken;
+        return Promise.resolve();
+    } catch (error) {
+        window.localStorage.removeItem("Access Token");
+        window.localStorage.removeItem("Refresh Token");
+        window.location.reload();
+        return Promise.reject(error);
+    }
 };
 
 createAuthRefreshInterceptor(axios, refreshAuthLogin, {
-    statusCodes: [401, 403],
+    statusCodes: [403],
 });
 
 export const register = (username, password, firstName, lastName, age) => {
