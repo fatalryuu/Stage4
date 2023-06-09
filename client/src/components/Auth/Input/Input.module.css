@@ -9,3 +9,7 @@
 .input:focus {
     outline: 1px solid #66ad36;
 }
+
+.input::placeholder {
+    font-size: 14px;
+}

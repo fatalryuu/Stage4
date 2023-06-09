@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import s from "./Login.module.css";
+import s from "./Register.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { login as loginAPI } from "../../../api/api";
 import { useDispatch } from "react-redux";
 import Input from "../Input/Input";
 
-const Login = () => {
+const Register = () => {
     const [username, setUsername] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [age, setAge] = useState("");
     const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -30,7 +34,7 @@ const Login = () => {
     return (
         <div className={s.wrapper}>
             <form onSubmit={handleSubmit}>
-                <h1 className={s.header}>Login</h1>
+                <h1 className={s.header}>Registration</h1>
                 <Input
                     type="text"
                     value={username}
@@ -38,20 +42,44 @@ const Login = () => {
                     onChange={setUsername}
                 />
                 <Input
+                    type="text"
+                    value={firstName}
+                    placeholder="Enter your first name"
+                    onChange={setFirstName}
+                />
+                <Input
+                    type="text"
+                    value={lastName}
+                    placeholder="Enter your last name"
+                    onChange={setLastName}
+                />
+                <Input
+                    type="number"
+                    value={age}
+                    placeholder="Enter your age"
+                    onChange={setAge}
+                />
+                <Input
                     type="password"
                     value={password}
-                    placeholder="Confirm a password"
+                    placeholder="Create a password"
                     onChange={setPassword}
                 />
+                <Input
+                    type="password"
+                    value={repeatPassword}
+                    placeholder="Confirm a password"
+                    onChange={setRepeatPassword}
+                />
                 {error && <p className={s.error}>{error}</p>}
-                <input type="submit" className={s.submit} value="Login" />
+                <input type="submit" className={s.submit} value="Register" />
                 <div className={s.footer}>
-                    <span>Don&apos;t have an account? </span>
-                    <NavLink to="/register">Register here</NavLink>
+                    <span>Already have an account? </span>
+                    <NavLink to="/login">Login here</NavLink>
                 </div>
             </form>
         </div>
     );
 };
 
-export default Login;
+export default Register;
