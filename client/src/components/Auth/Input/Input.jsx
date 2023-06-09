@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./Input.module.css";
 import PropTypes from "prop-types";
 
 const Input = ({ type, value, placeholder, onChange }) => {
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+
     return (
-        <input
-            type={type}
-            value={value}
-            placeholder={placeholder}
-            onChange={e => onChange(e.target.value)}
-            className={s.input}
-            required={true}
-        />
+        <div className={s.wrapper}>
+            <input
+                type={type}
+                value={value}
+                onChange={e => onChange(e.target.value)}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                className={s.input}
+                required
+            />
+            <label
+                className={`${s.label} ${
+                    isFocused || value ? s.labelFocused : ""
+                }`}
+            >
+                {placeholder}
+            </label>
+        </div>
     );
 };
 
