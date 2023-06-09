@@ -18,21 +18,24 @@ const Register = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        if (password === repeatPassword) {
-            try {
-                const response = await dispatch(
-                    registerAPI(username, password, firstName, lastName, age),
-                );
-                if (response.id) {
-                    navigate("/");
-                } else {
-                    setError(response.message);
-                }
-            } catch (e) {
-                console.log(e);
+        try {
+            const response = await dispatch(
+                registerAPI(
+                    username,
+                    password,
+                    repeatPassword,
+                    firstName,
+                    lastName,
+                    age,
+                ),
+            );
+            if (response.id) {
+                navigate("/");
+            } else {
+                setError(response.message);
             }
-        } else {
-            setError("Password mismatch");
+        } catch (e) {
+            console.log(e);
         }
     };
 

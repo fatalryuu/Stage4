@@ -32,7 +32,14 @@ createAuthRefreshInterceptor(axios, refreshAuthLogin, {
     statusCodes: [403],
 });
 
-export const register = (username, password, firstName, lastName, age) => {
+export const register = (
+    username,
+    password,
+    repeatPassword,
+    firstName,
+    lastName,
+    age,
+) => {
     return async dispatch => {
         try {
             const response = await axios.post(
@@ -40,6 +47,7 @@ export const register = (username, password, firstName, lastName, age) => {
                 {
                     username,
                     password,
+                    repeatPassword,
                     firstName,
                     lastName,
                     age,

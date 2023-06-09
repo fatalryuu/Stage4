@@ -26,7 +26,53 @@ router.post("/token", (req, res) => {
 
 router.post("/register", async (req, res) => {
     try {
-        const { username, password, firstName, lastName, age } = req.body;
+        const { username, password, repeatPassword, firstName, lastName, age } =
+            req.body;
+
+        if (username.length < 3) {
+            return res
+                .status(400)
+                .json({ message: "Username must contain 3 symbols or more" });
+        }
+
+        if (firstName.length < 3) {
+            return res
+                .status(400)
+                .json({ message: "First name must contain 3 symbols or more" });
+        }
+
+        if (lastName.length < 3) {
+            return res
+                .status(400)
+                .json({ message: "Last name must contain 3 symbols or more" });
+        }
+
+        if (!parseInt(age) || parseInt(age) < 1) {
+            return res
+                .status(400)
+                .json({
+                    message: "Age must be a number and can't be lower than 1",
+                });
+        }
+
+        if (password.length < 4) {
+            return res
+                .status(400)
+                .json({ message: "Password must contain 4 symbols or more" });
+        }
+        if (!/[0-9]*[a-zA-Z]+[0-9]+/.test(password)) {
+            return res
+                .status(400)
+                .json({
+                    message:
+                        "Password must contain at least 1 number and 1 letter",
+                });
+        }
+
+        if (password !== repeatPassword) {
+            return res.status(400).json({ message: "Passwords do not match" });
+        }
+
         const passwordHash = await bcrypt.hash(password, 5);
         const userQuery = await db.query(
             `INSERT INTO person
