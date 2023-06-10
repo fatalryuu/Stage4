@@ -48,11 +48,9 @@ router.post("/register", async (req, res) => {
         }
 
         if (!parseInt(age) || parseInt(age) < 1) {
-            return res
-                .status(400)
-                .json({
-                    message: "Age must be a number and can't be lower than 1",
-                });
+            return res.status(400).json({
+                message: "Age must be a number and can't be lower than 1",
+            });
         }
 
         if (password.length < 4) {
@@ -61,12 +59,9 @@ router.post("/register", async (req, res) => {
                 .json({ message: "Password must contain 4 symbols or more" });
         }
         if (!/[0-9]*[a-zA-Z]+[0-9]+/.test(password)) {
-            return res
-                .status(400)
-                .json({
-                    message:
-                        "Password must contain at least 1 number and 1 letter",
-                });
+            return res.status(400).json({
+                message: "Password must contain at least 1 number and 1 letter",
+            });
         }
 
         if (password !== repeatPassword) {
