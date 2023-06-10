@@ -8,7 +8,7 @@ const Project = ({ info }) => {
         <article className={s.project__wrapper}>
             <NavLink to="/" className={s.project__link}>
                 <img
-                    src={`http://localhost:5000/images${info.imgurl}`}
+                    src={`http://localhost:5000/images${info.img_url}`}
                     alt=""
                     className={s.project__icon}
                 ></img>

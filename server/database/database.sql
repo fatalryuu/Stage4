@@ -13,5 +13,5 @@ CREATE TABLE project
     id     SERIAL PRIMARY KEY,
     title  VARCHAR(255),
     text   VARCHAR(255),
-    imgURL VARCHAR(255)
+    img_url VARCHAR(255)
 );
