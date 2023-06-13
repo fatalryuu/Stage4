@@ -4,25 +4,23 @@ import { login as loginAC, setError } from "../redux/slices/auth";
 import { addProjects } from "../redux/slices/projects";
 
 const refreshAuthLogin = async failedRequest => {
-    console.log("tut1");
     try {
         const tokenRefreshResponse = await axios.post(
             "http://localhost:5000/api/auth/token",
             {
-                refreshToken: window.localStorage.getItem("Refresh Token"),
+                refreshToken: window.localStorage.getItem("REFRESH_TOKEN"),
             },
         );
-        console.log("tut2");
         localStorage.setItem(
-            "Access Token",
+            "ACCESS_TOKEN",
             tokenRefreshResponse.data.accessToken,
         );
         failedRequest.response.config.headers["Authorization"] =
             "Bearer " + tokenRefreshResponse.data.accessToken;
         return Promise.resolve();
     } catch (error) {
-        window.localStorage.removeItem("Access Token");
-        window.localStorage.removeItem("Refresh Token");
+        window.localStorage.removeItem("ACCESS_TOKEN");
+        window.localStorage.removeItem("REFRESH_TOKEN");
         window.location.reload();
         return Promise.reject(error);
     }
@@ -54,11 +52,11 @@ export const register = (
                 },
             );
             window.localStorage.setItem(
-                "Access Token",
+                "ACCESS_TOKEN",
                 response.data.accessToken,
             );
             window.localStorage.setItem(
-                "Refresh Token",
+                "REFRESH_TOKEN",
                 response.data.refreshToken,
             );
             dispatch(loginAC({ id: response.data.id }));
@@ -87,11 +85,11 @@ export const login = (username, password) => {
                 },
             );
             window.localStorage.setItem(
-                "Access Token",
+                "ACCESS_TOKEN",
                 response.data.accessToken,
             );
             window.localStorage.setItem(
-                "Refresh Token",
+                "REFRESH_TOKEN",
                 response.data.refreshToken,
             );
             dispatch(loginAC({ id: response.data.id }));
@@ -117,7 +115,7 @@ export const getProjects = () => {
                 {
                     headers: {
                         Authorization: `Bearer ${window.localStorage.getItem(
-                            "Access Token",
+                            "ACCESS_TOKEN",
                         )}`,
                     },
                 },
