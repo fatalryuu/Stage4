@@ -1,31 +1,26 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Projects from "./components/Projects/Projects";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./components/Auth/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
 import Register from "./components/Auth/Register/Register";
+import { ProtectedRoute } from "./tools/ProtectedRoute";
 
 function App() {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (!window.localStorage.getItem("ACCESS_TOKEN")) {
-            navigate("/login");
-        }
-    }, []);
-
     return (
         <div className="app">
             <Routes>
                 <Route
                     path="/"
                     element={
-                        <>
-                            <Header />
-                            <Projects />
-                        </>
+                        <ProtectedRoute>
+                            <>
+                                <Header />
+                                <Projects />
+                            </>
+                        </ProtectedRoute>
                     }
                 />
                 <Route path="/login" element={<Login />} />
